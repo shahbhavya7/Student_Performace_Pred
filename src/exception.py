@@ -1,5 +1,5 @@
 import sys
-import logging
+from src.logger import logging
 
 def error_message_detail(error,error_detail:sys): # this function takes error and error_detail as input , error_detail is a module in sys which contains information about the error
     _,_,exc_tb = error_detail.exc_info() # error detail gives 3 values, we are interested in the last one which is exc_tb which contains the traceback of the error
