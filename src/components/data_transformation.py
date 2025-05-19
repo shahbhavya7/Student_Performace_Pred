@@ -25,13 +25,13 @@ class DataTransformation:
     
     def get_data_transformer_object(self):
         try:
-            numerical_columns = ["writing_score", "reading_score"]
+            numerical_columns = ["writing score", "reading score"]
             categorical_columns = [
                 "gender",
-                "race_ethnicity",
-                "parental_level_of_education",
+                "race/ethnicity",
+                "parental level of education",
                 "lunch",
-                "test_preparation_course",
+                "test preparation course",
             ]
             
             # pipeline is sklearn's way of chaining multiple data processing steps together , it will take the data and apply the transformations in the order they are defined
@@ -134,3 +134,6 @@ class DataTransformation:
             raise CustomException(e,sys)        
         
             
+# basically the get_data_transformer_object function has all the transformations defined in it which will be used to transform the data
+# the initiate_data_transformation function will read the train and test data, apply the transformations and then save the transformed data to a file
+# the transformed data will be used to train the model
