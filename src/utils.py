@@ -22,18 +22,19 @@ def save_object(file_path, obj):
     except Exception as e:
         raise CustomException(e, sys)
     
-def evaluate_models(X_train, y_train,X_test,y_test,models): 
+def evaluate_models(X_train, y_train,X_test,y_test,models,param): 
     try:
         report = {}
 
         for i in range(len(list(models))): # loop through models fitting y_train and y_test and getting the score and saving it in the report dict
-            model = list(models.values())[i]
-            # para=param[list(models.keys())[i]]
+            model = list(models.values())[i] #  get the model from the models dict
+            para=param[list(models.keys())[i]]  # get the params for the model from the params dict
 
-            # gs = GridSearchCV(model,para,cv=3)
-            # gs.fit(X_train,y_train)
+            gs = GridSearchCV(model,para,cv=3) # fit the model with the params and cv=3 for cross validation , gridsearchCV is used to find the best params for the model
+            # it fits tries every combination of the params and returns the best params for the model and cross validation is used to avoid overfitting
+            gs.fit(X_train,y_train)
 
-            # model.set_params(**gs.best_params_)
+            model.set_params(**gs.best_params_) # gets the best params for the model from the gridsearchCV and applies them to the model
             model.fit(X_train,y_train)
 
             #model.fit(X_train, y_train)  # Train model
