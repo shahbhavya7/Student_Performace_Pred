@@ -96,13 +96,6 @@ class DataTransformation:
             target_feature_test_df=test_df[target_column_name]
 
 
-            save_object( # create a pickle file of the preprocessor object using the save_object function defined in utils.py
-                # it takes the file path and the object to be saved as parameters
-                file_path=self.data_transformation_config.preprocessor_obj_file_path,
-                obj=preprocessing_obj # obj here refers to the preprocessor object which is created using the get_data_transformer_object function
-                # that has all the transformations defined in it , saving it to a pickle file will allow us to use it later at the time of prediction
-            )
-        
             logging.info(
                 f"Applying preprocessing object on training dataframe and testing dataframe."
             )
@@ -116,12 +109,12 @@ class DataTransformation:
             test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
 
             logging.info(f"Saved preprocessing object.")
-
-            save_object(
-
+            
+            save_object( # create a pickle file of the preprocessor object using the save_object function defined in utils.py
+                # it takes the file path and the object to be saved as parameters
                 file_path=self.data_transformation_config.preprocessor_obj_file_path,
-                obj=preprocessing_obj
-
+                obj=preprocessing_obj # obj here refers to the preprocessor object which is created using the get_data_transformer_object function
+                # that has all the transformations defined in it , saving it to a pickle file will allow us to use it later at the time of prediction
             )
 
             return ( # return the train and test arrays which will be used to train the model
