@@ -74,7 +74,7 @@ The system trains and evaluates multiple regression algorithms with comprehensiv
 
 | Algorithm | Hyperparameter Tuning | R² Score |
 |-----------|----------------------|----------|
-| **Ridge Regression** | `alpha`: [0.1, 1.0, 10.0, 100.0] | **0.880593** ⭐ |
+| **Ridge Regression** | `alpha`: [0.1, 1.0, 10.0, 100.0] | **0.880593**  |
 | **Linear Regression** | Default parameters | 0.880433 |
 | **Random Forest** | `n_estimators`: [8, 16, 32, 64, 128, 256] | 0.851712 |
 | **CatBoost** | `depth`: [6, 8, 10], `learning_rate`: [0.01, 0.05, 0.1], `iterations`: [30, 50, 100] | 0.851632 |
